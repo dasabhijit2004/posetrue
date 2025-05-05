@@ -1,7 +1,6 @@
 let capture;
 let posenet;
-let singlePose;
-let skeleton;
+let allPoses = [];
 
 function setup() {
     createCanvas(800, 600);
@@ -14,11 +13,7 @@ function setup() {
 }
 
 function receivedPoses(poses) {
-    console.log(poses);
-    if (poses.length > 0) {
-        singlePose = poses[0].pose;
-        skeleton = poses[0].skeleton;
-    }
+    allPoses = poses;
 }
 
 function modelLoaded() {
@@ -29,13 +24,18 @@ function draw() {
     image(capture, 0, 0, 800, 600);
     fill(255, 0, 0);
 
-    if (singlePose) {
-        for (let i = 0; i < singlePose.keypoints.length; i++) {
-            let keypoint = singlePose.keypoints[i];
-            ellipse(keypoint.position.x, keypoint.position.y, 15, 15);
+    for (let p = 0; p < allPoses.length; p++) {
+        let pose = allPoses[p].pose;
+        let skeleton = allPoses[p].skeleton;
+
+        for (let i = 0; i < pose.keypoints.length; i++) {
+            let keypoint = pose.keypoints[i];
+            if (keypoint.score > 0.2) { 
+                ellipse(keypoint.position.x, keypoint.position.y, 15, 15);
+            }
         }
 
-        for(let j = 0; j < skeleton.length; j++) {
+        for (let j = 0; j < skeleton.length; j++) {
             let partA = skeleton[j][0];
             let partB = skeleton[j][1];
             stroke(255);
