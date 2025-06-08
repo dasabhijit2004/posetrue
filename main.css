@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@600&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: black;
+  position: relative;
+  overflow-x: hidden;
+}
+
+h1, p {
+  font-size: 70px;
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+h1 {
+  top: 20px;
+}
+
+p {
+  font-size: 18px;
+  top: 15%;
+}
+
+img {
+  width: 40%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+button {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===== Responsive for tablets and smaller phones ===== */
+@media (max-width: 991px) {
+  h1 {
+    font-size: 50px;
+    top: 30px;
+  }
+
+  p {
+    font-size: 16px;
+    top: 14%;
+  }
+
+  img {
+    width: 55%;
+    top: 35%;
+  }
+
+  button {
+    font-size: 16px;
+    top: 82%;
+    padding: 10px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 28px;
+    top: 20px;
+  }
+
+  p {
+    font-size: 14px;
+    top: 15%;
+    width: 90%;
+  }
+
+  img {
+    width: 85%;
+    top: 32%;
+  }
+
+  button {
+    font-size: 14px;
+    top: 82%;
+    padding: 6px 12px;
+  }
+}
